@@ -1,0 +1,70 @@
+::B-808::
+=========
+
+
+=== STATS ===
+
+= CPU =
+bits:	 	  8
+Registers:	  6
+Instructions:	 16
+Clock Speed:	256 khz.
+
+= RAMemory =
+Addresses:	128
+Address Width:	  8
+Data Width:	  8
+
+= Program Memory =
+Adresses:	4095
+Address With:	  12
+Data Width:	  16
+
+
+=== INSTRUCTIONS ===
+0: HALT	->	Stops the CPU
+1: ADD	->	Adds 2 Registers
+2: ADR	->	Adds a Register by a value
+3: DEC	->	Decreaments 2 Registers
+4: DER	->	Decreaments Register by value
+5: JMP	->	Jumps to a part of the program
+6: CMP	->	Compares 2 Registers
+7: CMR	->	Compares Register by a value
+8: JE	->	Jumps if CMP is succesful
+9: SET	->	Sets Register to a value
+A: OUTB	->	Outputs Registers Value
+B: INB	->	Stores Input in a Register
+C: MEM	->	Stores Register in MEM Address
+D: MER	->	MEM but Address from Register
+E: LMEM	->	Load MEM Address to Register
+F: LMER ->	LMEM but Address from Register
+
+
+=== ToDo ===
+[X] Logisim Project
+[X] CPU main
+[X] Registers
+[X] Instructions
+	[X] HALT
+	[X] ADD
+	[X] ADD^
+	[X] DEC
+	[X] DEC^
+	[X] JMP
+	[X] CMP
+	[X] CMP^
+	[X] JE
+	[X] SET
+	[X] OUTB
+	[X] INB
+	[X] MEM
+	[X] MEM^
+	[X] LMEM
+	[X] LMEM^
+[ ] Github Page
+[ ] Description
+[ ] Documentation
+[ ] Software
+	[ ] OS
+	[ ] Tic-Tac-Toe
+	[ ] Pong

@@ -1,0 +1,212 @@
+	section	.text,"ax",@progbits
+	assume	adl = 1
+	section	.text,"ax",@progbits
+	public	_main
+_main:
+	call	_gfx_Begin
+BB0_1:
+	call	_os_GetCSC
+	or	a, a
+	jr	nz, BB0_3
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, 100
+	push	hl
+	push	hl
+	ld	hl, 5
+	push	hl
+	push	hl
+	call	_r_drawRect
+	pop	hl
+	pop	hl
+	pop	hl
+	pop	hl
+	pop	hl
+	jr	BB0_1
+BB0_3:
+	call	_gfx_End
+	or	a, a
+	sbc	hl, hl
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_r_drawPixel
+_r_drawPixel:
+	ld	hl, -4
+	call	__frameset
+	ld	hl, (ix + 6)
+	ld	(ix - 3), hl
+	ld	a, (ix + 9)
+	ld	(ix - 4), a
+	ld	a, (ix + 12)
+	ld	l, a
+	push	hl
+	call	_gfx_SetColor
+	pop	hl
+	ld	hl, (ix - 3)
+	ld	(ix + 6), hl
+	ld	a, (ix - 4)
+	ld	(ix + 9), a
+	ld	sp, ix
+	pop	ix
+	jp	_gfx_SetPixel
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_r_drawStraightLine
+_r_drawStraightLine:
+	ld	hl, -6
+	call	__frameset
+	ld	bc, (ix + 6)
+	ld	iy, (ix + 9)
+	ld	de, (ix + 12)
+	ld	hl, (ix + 15)
+	add	hl, bc
+	or	a, a
+	sbc	hl, bc
+	jr	nz, BB2_6
+	push	bc
+	pop	hl
+	or	a, a
+	sbc	hl, de
+	call	pe, __setflag
+	jp	m, BB2_3
+	push	bc
+	pop	de
+BB2_3:
+	ld	(ix - 3), de
+BB2_4:
+	ex	de, hl
+	or	a, a
+	sbc	hl, bc
+	jr	z, BB2_11
+	ld	hl, (ix + 18)
+	push	hl
+	push	iy
+	push	bc
+	ld	(ix - 6), bc
+	call	_r_drawPixel
+	ld	iy, (ix + 9)
+	ld	bc, (ix - 6)
+	pop	hl
+	pop	hl
+	pop	hl
+	inc	bc
+	ld	de, (ix - 3)
+	jr	BB2_4
+BB2_6:
+	ld	(ix - 3), de
+	ld	de, 1
+	or	a, a
+	sbc	hl, de
+	lea	hl, iy
+	jr	nz, BB2_11
+	push	hl
+	pop	iy
+	ld	de, (ix + 12)
+	or	a, a
+	sbc	hl, de
+	lea	de, iy
+	call	pe, __setflag
+	jp	m, BB2_10
+	ld	(ix - 3), de
+	jr	BB2_10
+BB2_9:
+	ld	hl, (ix + 18)
+	push	hl
+	push	de
+	push	bc
+	ld	(ix - 6), de
+	call	_r_drawPixel
+	ld	de, (ix - 6)
+	ld	bc, (ix + 6)
+	pop	hl
+	pop	hl
+	pop	hl
+	inc	de
+BB2_10:
+	ld	hl, (ix - 3)
+	or	a, a
+	sbc	hl, de
+	jr	nz, BB2_9
+BB2_11:
+	ld	sp, ix
+	pop	ix
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_r_drawRect
+_r_drawRect:
+	ld	hl, -12
+	call	__frameset
+	ld	de, (ix + 6)
+	ld	iy, (ix + 9)
+	ld	hl, (ix + 12)
+	ld	(ix - 3), hl
+	ld	bc, (ix + 15)
+	lea	hl, iy
+	ld	(ix - 6), bc
+	or	a, a
+	sbc	hl, bc
+	call	pe, __setflag
+	jp	m, BB3_2
+	ld	(ix - 6), iy
+BB3_2:
+	push	de
+	pop	hl
+	ld	bc, (ix + 12)
+	or	a, a
+	sbc	hl, bc
+	call	pe, __setflag
+	jp	m, BB3_7
+	ld	(ix - 3), de
+	jr	BB3_7
+BB3_4:
+	ld	hl, (ix - 6)
+	or	a, a
+	sbc	hl, bc
+	jr	z, BB3_6
+	ld	hl, (ix + 18)
+	push	hl
+	push	bc
+	push	de
+	ld	(ix - 9), de
+	ld	(ix - 12), bc
+	call	_r_drawPixel
+	ld	iy, (ix + 9)
+	ld	bc, (ix - 12)
+	ld	de, (ix - 9)
+	pop	hl
+	pop	hl
+	pop	hl
+	inc	bc
+	jr	BB3_4
+BB3_6:
+	inc	de
+BB3_7:
+	push	de
+	pop	hl
+	ld	bc, (ix - 3)
+	or	a, a
+	sbc	hl, bc
+	lea	bc, iy
+	jr	nz, BB3_4
+	ld	sp, ix
+	pop	ix
+	ret
+	section	.text,"ax",@progbits
+
+	ident	"clang version 15.0.0 (https://github.com/jacobly0/llvm-project 5f8512f22751066573aa48ac848a6d2195838ac3)"
+	ident	"clang version 15.0.0 (https://github.com/jacobly0/llvm-project 5f8512f22751066573aa48ac848a6d2195838ac3)"
+	extern	__setflag
+	extern	__Unwind_SjLj_Register
+	extern	__Unwind_SjLj_Unregister
+	extern	__frameset
+	extern	_gfx_Begin
+	extern	_gfx_SetColor
+	extern	_gfx_SetPixel
+	extern	_gfx_End
+	extern	_os_GetCSC

@@ -1,0 +1,35 @@
+<!--
+  CManager HTML Source Code
+
+  Copyright (c) 2023 MadMushroom / Benjamin Braun
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>CManager</title>
+  </head>
+  <body>
+      <div id="popUpContainerHolder">
+      </div>
+
+      <div id="backgroundeffect"></div>
+
+      <div class="backgrounditems">
+        <h1>CManager - Manage your Contacts</h1>
+        <!--<img class="logoImage" src="img/logo/logo-black.png" alt="CManager Logo">-->
+        <hr>
+
+        <h2>Your Contacts</h2>
+        <button id="AddNewContactButton" onclick="ShowAddContactPopUp()">+</button><br><br>
+        <div id="contactList"></div><br>
+      </div>
+
+      <script src="js/ContactManager.js"></script>
+  </body>
+</html>

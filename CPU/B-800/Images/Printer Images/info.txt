@@ -1,0 +1,70 @@
+::: B-800 :::
+=============
+
+
+=== STATS ===
+
+= CPU =
+CPU bits:		   8
+Registers:		   4
+Instructions:		  16
+Clock Speed in hz:	 128
+
+= Memory =
+Memory Addresses:	  16
+Data Bit Width:		   8
+
+= Program Storage =
+Addresses:  		4095
+Data Bit Width:		  16
+
+
+=== INSTRUCTIONS ===
+0000: HALT	->	HLT	->	Stops the CPU and exit the Program
+0001: INC	->	INC A B	->	Increases the Register by another Register
+0010: DEC	->	DEC A B	->	Decreases the Register by another Register
+0011: JMP	->	JMP 5	->	Jumps to a other Part of the Program
+0100: CMP	->	CMP A B	->	Checks if the Register is the Value of another Register
+0101: JE	->	JE 4	->	Jumps if CMP is succesful
+0110: JMPN	->	JMPN 5	->	Jumps if a calculation is negative
+0111: SET	->	SET A 2	->	Sets a Register to a specific value
+1000: OUTB	->	OUT A	->	Outputs the Registers Value
+1001: INB	->	INB A	->	Takes 8-bit Input and stores it in the Register
+1010: MEM	->	MEM A 4	->	Write Register to specific Memory Address
+1011: LMEM	->	LEM 1 A	->	Load specific Memory Address to an Register
+1100:
+1101:
+1110:
+1111:
+
+
+=== COMPONENTS ===
+Arithmec & Logic Unit
+Central Processing Unit
+Random Access Memory
+Program Memory (Read Only Memory)
+
+
+=== ToDo ===
+[X] ALU
+[X] CPU main components
+[X] Registers
+[X] Increment Instruction Address Register
+[*] Instructions
+	[X] HALT
+	[X] INC
+	[X] DEC
+	[X] JMP
+	[X] CMP
+	[X] JE
+	[*] JMPN
+	[X] SET
+	[X] OUTB
+	[X] INB
+	[X] MEM
+	[X] LMEM
+[X] Finish Up
+[X] Program Memory Outside from the Chip
+[X] I/O Board
+[ ] Github Page
+[ ] Description

@@ -1,0 +1,176 @@
+/*
+  CManager CSS Source code
+
+  Copyright (c) 2023 MadMushroom / Benjamin Braun
+*/
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+button, div, img { transition: all 300ms }
+
+/* General */
+
+.logoImage {
+  width: 5%;
+  height: 5%;
+  margin-top: 20px;
+  margin-left: 94%;
+}
+
+#backgroundeffect {
+  margin-top: -6%;
+  margin-left: -8px;
+}
+
+.popUpContainer {
+  z-index: 9;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: -3%;
+  background: #ffffff;
+  border-width: thin;
+  border-radius: 10px;
+  border-color: #000000;
+  border-style: solid;
+
+}
+
+.popUpContainer p {
+  margin-left: 1%;
+}
+
+.popUpContainer h2 {
+  margin-top: -1%;
+  margin-left: 1%
+}
+
+.popUpContainer input {
+  margin-left: 1%;
+}
+
+.popUpContainer button {
+  margin-left: 10px;
+}
+
+#closePopUpContainer {
+  margin-left: 97%;
+  margin-top: 5px;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 40px;
+	font-family: 'Roboto', sans-serif;
+  margin-left: 0.8%;
+  margin-top: 6%;
+}
+
+h2 {
+  font-size: 30px;
+	font-family: 'Roboto', sans-serif;
+}
+
+hr {
+  width: 98%;
+	height: 2px;
+	background: #aaaaaa;
+	border: 0;
+	margin: 0 auto 40px auto;
+}
+
+p {
+  float: left;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  border-radius: 10px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+  border-color: #ffffff;
+  background-color: #ffffff
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  border-color: #000000;
+  background-color: #22ff22
+}
+
+#closePopUpContainer:hover {
+  background-color: #ff5555;
+}
+
+/* Create New Contact */
+
+#AddContactButton {
+  float: left;
+}
+
+#AddNewContactButton {
+  font-size: 120%;
+  transform: scaleX(1.2);
+}
+
+#AddNewContactButton:hover {
+  transform: scaleY(1.1);
+  transform: scaleX(1.3);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  border-color: #000000;
+  background-color: #22ff22
+}
+
+/* Contact List */
+
+#contactList div {
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: #aaaaaa;
+  border-style: solid;
+}
+
+#contactList div:hover {
+  transform: scale(1.005);
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.3);
+}
+
+#contactList p {
+  margin-left: 20px;
+}
+
+/* Contacts */
+
+.ContactOptions {
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+  transform: scale(1.1);
+}
+
+.ContactOptionsDelete {
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+  transform: scale(1.1);
+}
+
+.ContactOptions img {
+  background-color: #ffffff
+}
+
+.ContactOptions img:hover {
+  background-color: #22ff22
+}
+
+.ContactOptionsDelete, .ContactOptionsDelete img {
+  background-color: #ffffff
+}
+
+.ContactOptionsDelete:hover, .ContactOptionsDelete img:hover {
+  background-color: #ff5555
+}

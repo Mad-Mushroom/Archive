@@ -1,0 +1,17 @@
+[X] Bootloader*
+[X] VGA Screen*
+[X] GDT*
+[X] IDT*
+[X] IO*
+[X] Keyboard*
+[ ] PIT*
+[ ] PC Speaker**
+[*] Shell*
+[ ] Memory*
+[ ] Disk Read**
+[ ] PCI**
+[ ] ACPI***
+
+* Alpha
+** Beta
+*** Release

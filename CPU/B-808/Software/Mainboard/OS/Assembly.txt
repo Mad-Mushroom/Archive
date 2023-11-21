@@ -1,0 +1,25 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;           B-808 OS             ;
+; Copyright (c) 2023 MadMushroom ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; == ToDo ==
+; - String System
+; - Good Input
+; - Cmd parser
+; - Task handler
+; - better I/O
+
+SET B 0xff  ; Set B to 255
+SET C 0x01  ; Set C to 1
+ADR C 0x01  ; Add 1 to C
+OUTB B      ; output B (play beep)
+CMR C 0x0a  ; check if the beep lasted long enough
+JE 0x008    ; if yes, jump to next section
+JMP 0x002   ; if not, jump back and do it again
+SOD         ; change output device
+SET B 0x01  ; set B to 1
+SOD         ; change output device
+OUTB B      ; change output device to B (speaker)
+SET B 0xff  ; set b to 255
+OUTB B      ; output B (stop beep)

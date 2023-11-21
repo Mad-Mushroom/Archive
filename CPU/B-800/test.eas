@@ -1,0 +1,5 @@
+SET A 0xA5
+OUTB A
+INB B
+INC B A
+OUTB B
